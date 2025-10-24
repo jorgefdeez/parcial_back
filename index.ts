@@ -46,7 +46,7 @@ app.get("/lds/:id",(req,res)=>{
 app.post("/lds",(req,res)=>{
 
     try{
-        const newId=Date.now()  
+        const newId= lds.length +1 
 
         const newFilmName = req.body.filmName
         const newRotationType = req.body.rotationType
