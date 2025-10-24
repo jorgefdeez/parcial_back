@@ -9,8 +9,6 @@ const port = 3000
 app.use(cors())
 app.use(express.json())
 
-//pkill -f node
-
 type LD = {
     id: number
     filmName: string
@@ -54,12 +52,10 @@ app.post("/lds",(req,res)=>{
         const newLengthMinutes = req.body.lengthMinutes
         const newVideoFormat = req.body.videoFormat
 
-        //compruebo que se hayan llenado todos los parametros 
         if(!newFilmName || !newRotationType || !newRegion || !newLengthMinutes || !newVideoFormat){
             return res.status(400).send("Error, se necesitan todos los parametros")
         }
 
-        //compruebo que rotattiontype y videoformat sean del tipo correcto
         if(newRotationType.toUpperCase() != "CAV" && newRotationType.toUpperCase() != "CLV"){
             return res.status(404).send("Error, tipo de rotationType no disponible")
     }
